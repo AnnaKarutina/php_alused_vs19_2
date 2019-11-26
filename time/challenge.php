@@ -104,6 +104,9 @@ echo abs($vaheAastates).' aasta võrra<br>';
 echo '<hr>';
 
 //Maailmalõpp saabub 29.02.2016! Las PHP otsustab, kas see on võimalik.
+
+// ei viitsi teha
+
 //Leia, kas sul on järgmine aasta juubel?
 $jargmineAasta = date('Y')+1;
 $minuSynniKuuPaev = strtotime("27 November 1980");
