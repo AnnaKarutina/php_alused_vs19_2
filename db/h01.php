@@ -14,5 +14,7 @@ require_once 'config.php';
 $ikt = connect(HOST, USER, PASS, DBNAME);
 
 // katsetame sql
-$slq = 'RENAME TABLE `anna_db`.`TABLE 1` TO `anna_db`.`koolid2015`';
-$result = query($slq, $ikt);
+$sql = 'SELECT Kool,Kokku FROM koolid2015';
+$result = getData($sql, $ikt);
+echo '<pre>';
+print_r($result);
