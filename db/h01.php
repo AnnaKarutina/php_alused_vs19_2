@@ -13,5 +13,6 @@ require_once 'config.php';
 // ühendus ikt serveris oleva andmebaasiga
 $ikt = connect(HOST, USER, PASS, DBNAME);
 
-echo '<pre>';
-print_r($ikt);
+// katsetame sql
+$slq = 'RENAME TABLE `anna_db`.`TABLE 1` TO `anna_db`.`koolid2015`';
+$result = query($slq, $ikt);

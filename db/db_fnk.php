@@ -17,3 +17,12 @@ function connect($host, $user, $pass, $dbname){
   // olemasolev ühendus tagastame põhiprogrammile
   return $link;
 }
+
+// suvalise päringu saatmine andmebaasi
+function query($sql, $link){
+  $result = mysqli_query($link, $sql);
+  if($result === false){
+    echo 'Probleem päringuga <b>'.$sql.'</b><br>';
+  }
+  return $result;
+}
