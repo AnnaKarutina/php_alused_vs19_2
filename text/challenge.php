@@ -68,10 +68,25 @@ $asendus = array(
 foreach ($asendus as $otsi=>$asenda){
   $nimiJaPerenimi = str_replace($otsi, $asenda, $nimiJaPerenimi);
 }
-$tyhikuIndeks = strpos($nimiJaPerenimi, ' ', 0);
-$nimi = strtolower(substr($nimiJaPerenimi, 0, $tyhikuIndeks));
-$nimiJaPerenimi = substr($nimiJaPerenimi, $tyhikuIndeks+1);
-$tyhikuIndeks = strpos($nimiJaPerenimi, ' ');
-$perenimi = strtolower(substr($nimiJaPerenimi,$tyhikuIndeks+1));
-$email = $nimi.'.'.$perenimi.'@khk.ee';
+$nimiJaPerenimi = trim($nimiJaPerenimi); // eemaldame lisatühikud kui nad on
+$andmed = explode(' ', $nimiJaPerenimi);
+$kasutaja = ''; // loome tühi kasutaja nimi
+$eelviimaneSona = 0;
+foreach ($andmed as $sona){
+  if(ucfirst($sona) == $sona){
+    $kasutaja .= strtolower($sona);
+    $kasutaja .= '.';
+  }
+
+}
+$index = strpos($kasutaja, '.', -1);
+$kasutaja = substr_replace($kasutaja, '', 9, 1);
+$email = $kasutaja.'@khk.ee';
 echo $email;
+//$tyhikuIndeks = strpos($nimiJaPerenimi, ' ', 0);
+//$nimi = strtolower(substr($nimiJaPerenimi, 0, $tyhikuIndeks));
+//$nimiJaPerenimi = substr($nimiJaPerenimi, $tyhikuIndeks+1);
+//$tyhikuIndeks = strpos($nimiJaPerenimi, ' ');
+//$perenimi = strtolower(substr($nimiJaPerenimi,$tyhikuIndeks+1));
+//$email = $nimi.'.'.$perenimi.'@khk.ee';
+//echo $email;
