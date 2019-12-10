@@ -14,6 +14,8 @@ function connect($host, $user, $pass, $dbname){
     echo 'Probleem andmebaasi ühendusega<br>';
     exit;
   }
+  // määrame utf-8
+  mysqli_set_charset($link, 'utf8');
   // olemasolev ühendus tagastame põhiprogrammile
   return $link;
 }
