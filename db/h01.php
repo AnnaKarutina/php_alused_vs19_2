@@ -17,5 +17,7 @@ $ikt = connect(HOST, USER, PASS, DBNAME);
 // katsetame sql
 $sql = 'SELECT Kool,Kokku FROM koolid2015';
 $result = getData($sql, $ikt);
+echo '<h1>Harjutus 01</h1>';
+echo 'Ridu kokku:'.count($result).'<br>';
 $tabeliPealkirjad = array('Kool', '2012');
 tabel($result, $tabeliPealkirjad);
