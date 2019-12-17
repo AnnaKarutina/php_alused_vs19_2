@@ -17,15 +17,21 @@ otsinguVorm();
 // kasutamine vormi kaudu tulnud andmed
 if(isset($_GET['otsi'])){
   $otsi = $_GET['otsi']; // salvestame otsingu andmed
-  // koostame antud andmete otsingu päring
-  $sql = 'SELECT 2015,Kool FROM koolid2015 WHERE Kool LIKE "%'.$otsi.'%"';
-  // saadame päring andmebaasi
-  $result = getData($sql, $ikt);
-  // kui andmed on olemas
-  if($result !== false){
-    // väljastame need
-    $pealkirjad = array('2015', 'Kool');
-    tabel($result, $pealkirjad);
+  // kui andmed on reaalsed - mida on sisestatud vormi input välja sisse
+  if(strlen($otsi) > 0){
+    // koostame antud andmete otsingu päring
+    $sql = 'SELECT 2015,Kool FROM koolid2015 WHERE Kool LIKE "%'.$otsi.'%"';
+    // saadame päring andmebaasi
+    $result = getData($sql, $ikt);
+    // kui andmed on olemas
+    if($result !== false){
+      // väljastame need
+      $pealkirjad = array('2015', 'Kool');
+      tabel($result, $pealkirjad);
+    }
+  } else {
+    echo 'Tuleb täpsustada otsing <br>';
   }
+
 }
 
