@@ -68,3 +68,37 @@ function tabelKustuta($andmed, $pealkirjad){
   echo '</tbody>';
   echo '</table>';
 }
+
+function tabelKustutaMuuda($andmed, $pealkirjad){
+  echo '<table>';
+  echo '<thead>';
+  echo '<tr>';
+  foreach ($pealkirjad as $pealkiri){
+    echo '<th>'.$pealkiri.'</th>';
+  }
+  echo '</tr>';
+  echo '</thead>';
+  echo '<tbody>';
+  foreach ($andmed as $tabeliRida){
+    echo '<tr>';
+    echo '<td>'.$tabeliRida['enimi'].'</td>';
+    echo '<td>'.$tabeliRida['pnimi'].'</td>';
+    echo '<td>'.$tabeliRida['kontakt'].'</td>';
+    echo '<td><a href="?kustutaID='.$tabeliRida['id'].'">kustuta</a></td>';
+    echo '<td><a href="?muudaID='.$tabeliRida['id'].'">muuda</a></td>';
+    echo '</tr>';
+  }
+  echo '</tbody>';
+  echo '</table>';
+}
+
+function muudaAndmedVorm($andmed){
+  echo
+  '<form action="" method="get">
+        <input type="text" name="id" value="'.$andmed['id'].'" hidden><br>
+        Eesnimi <input type="text" name="enimi" value="'.$andmed['enimi'].'"><br>
+        Perenimi <input type="text" name="pnimi" value="'.$andmed['pnimi'].'"><br>
+        Kontakt <input type="text" name="kontakt" value="'.$andmed['kontakt'].'"><br>
+        <input type="submit" value="Muuda" name="muudanyyd">
+    </form>';
+}
