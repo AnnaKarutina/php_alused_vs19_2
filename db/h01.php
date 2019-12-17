@@ -18,5 +18,5 @@ $ikt = connect(HOST, USER, PASS, DBNAME);
 // katsetame sql
 $sql = 'SELECT Kool,Kokku FROM koolid2015';
 $result = getData($sql, $ikt);
-$tabeliPealkirjad = array('Kool', '2015');
+$tabeliPealkirjad = array('Kool', '2012');
 tabel($result, $tabeliPealkirjad);
