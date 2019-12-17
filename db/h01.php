@@ -9,9 +9,13 @@
 require_once 'db_fnk.php';
 // lisame kasutusele andmebaasi serveri konfiguratsiooni
 require_once 'config.php';
+// lisan väljundi kasutamise faili
+require_once 'valjund.php';
 
 // ühendus ikt serveris oleva andmebaasiga
 $ikt = connect(HOST, USER, PASS, DBNAME);
-// tabeli ümbernimetamine
-$sql = 'RENAME TABLE `anna_db`.`TABLE 1` TO `anna_db`.`koolid2015`';
-$result = query($sql, $ikt);
+// katsetame sql
+$sql = 'SELECT Kool,Kokku FROM koolid2015';
+$result = getData($sql, $ikt);
+$tabeliPealkirjad = array('Kool', '2012');
+tabel($result, $tabeliPealkirjad);
