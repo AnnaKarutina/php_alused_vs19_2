@@ -14,9 +14,20 @@ require_once 'valjund.php';
 $ikt = connect(HOST, USER, PASS, DBNAME);
 // lehe väljund
 echo '<h1>Harjutus 06</h1>';
-// kustutamispäring
-$sql = 'DELETE FROM kliendid WHERE id=2';
-$result = query($sql, $ikt);
-if($result){
-  echo 'Andmebaasist on kustutatud '.mysqli_affected_rows($ikt).' rida<br>';
+// küsime kõik andmed
+$sql = 'SELECT * FROM kliendid';
+$result = getData($sql, $ikt);
+// kui andmed on käes - joonistame tabeli
+$tabeliPealkiri = array('Eesnimi', 'Perenimi', 'Kontakt', '');
+tabelKustuta($result, array());
+// klikkides kustuta linki peal kustutame kasutaja
+if(!empty($_GET['kustutaID'])) {
+  $id = $_GET['kustutaID'];
+  // kustutamispäring
+  $sql = 'DELETE FROM kliendid WHERE id="' . $id . '"';
+  $result = query($sql, $ikt);
+  if ($result !== false) {
+    // taaskäivitame antud lehekülg
+    header('Location: '.$_SERVER['PHP_SELF']);
+  }
 }

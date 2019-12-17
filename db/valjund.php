@@ -46,3 +46,25 @@ function lisaAndmedVorm(){
     </form>
   ';
 }
+
+function tabelKustuta($andmed, $pealkirjad){
+  echo '<table>';
+  echo '<thead>';
+  echo '<tr>';
+  foreach ($pealkirjad as $pealkiri){
+    echo '<th>'.$pealkiri.'</th>';
+  }
+  echo '</tr>';
+  echo '</thead>';
+  echo '<tbody>';
+  foreach ($andmed as $tabeliRida){
+    echo '<tr>';
+      echo '<td>'.$tabeliRida['enimi'].'</td>';
+      echo '<td>'.$tabeliRida['pnimi'].'</td>';
+      echo '<td>'.$tabeliRida['kontakt'].'</td>';
+      echo '<td><a href="?kustutaID='.$tabeliRida['id'].'">kustuta</a></td>';
+    echo '</tr>';
+  }
+  echo '</tbody>';
+  echo '</table>';
+}
