@@ -1,0 +1,27 @@
+<?php
+/**
+ * file name: valjund.php;
+ * autor: anna.karutina;
+ * date: 17.12.2019;
+ */
+// tabel pealkirjaga
+function tabel($andmed, $pealkirjad){
+  echo '<table>';
+    echo '<thead>';
+      echo '<tr>';
+      foreach ($pealkirjad as $pealkiri){
+        echo '<th>'.$pealkiri.'</th>';
+      }
+      echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
+    foreach ($andmed as $tabeliRida){
+      echo '<tr>';
+      foreach ($tabeliRida as $vaartus){
+        echo '<td>'.$vaartus.'</td>';
+      }
+      echo '</tr>';
+    }
+    echo '</tbody>';
+  echo '</table>';
+}
