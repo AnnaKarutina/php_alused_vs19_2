@@ -35,7 +35,11 @@ if(isset($_GET['enimi']) && isset($_GET['pnimi'])){
       echo 'Andmebaasi on lisatud '.mysqli_affected_rows($ikt).' ridu<br>';
       echo 'Viimane muudetud id on '.mysqli_insert_id($ikt).'<br>';
       // küsi kõikide klientide andmed andmebaasist
+      $sql = 'SELECT enimi,pnimi,kontakt FROM kliendid';
+      $result = getData($sql, $ikt);
       // ja väljasta tabeli kujul
+      $tabeliPealkiri = array('Eesnimi', 'Perenimi', 'Kontakt');
+      tabel($result, $tabeliPealkiri);
     }
   }
 }
