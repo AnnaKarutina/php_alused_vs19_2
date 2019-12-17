@@ -25,3 +25,12 @@ function tabel($andmed, $pealkirjad){
     echo '</tbody>';
   echo '</table>';
 }
+
+// otsingu vorm
+function otsinguVorm(){
+  echo '
+  <form action="" method="get">
+		<input type="text" name="otsi">
+		<input type="submit" value="Otsi"> 
+	</form>';
+}
